@@ -1,0 +1,76 @@
+.Footer {
+  background-color: $color-secondary;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-links {
+    .list-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+
+      li {
+      }
+      a {
+        font-size: 2rem;
+        color: $color-light-1;
+        transition: 0.2s ease-out;
+
+        &:hover {
+          color: $color-light-2;
+        }
+      }
+
+      .phone-number {
+        position: relative;
+        &:hover span {
+          width: 15rem;
+        }
+        span {
+          width: 0;
+          position: absolute;
+          left: 3rem;
+          overflow: hidden;
+          font-size: 2.2rem;
+          font-family: $font-display;
+          transition: 0.4s ease-out;
+
+          @include mq("phablet") {
+            left: -9.5rem;
+            top: -5rem;
+            color: $color-primary-dark;
+          }
+        }
+      }
+    }
+    .line {
+      display: grid;
+      grid-template-columns: 1fr max-content 1fr;
+      align-items: center;
+      grid-gap: 0.5rem;
+      font-family: $font-display;
+      font-size: 1.6rem;
+      text-transform: capitalize;
+      color: $color-light-2;
+      pointer-events: none;
+      &::after,
+      &::before {
+        content: "";
+        display: block;
+        height: 1px;
+        background-color: currentColor;
+      }
+    }
+  }
+}
