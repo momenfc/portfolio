@@ -12,8 +12,8 @@ const Projects = () => {
   };
 
   const handleListForPagination = () => {
-    const { curPage, pageSize } = state;
-    const listForPagination = state.projects.slice(
+    const { curPage, pageSize } = state.ui;
+    const listForPagination = state.projects.list.slice(
       (curPage - 1) * pageSize,
       curPage * pageSize
     );

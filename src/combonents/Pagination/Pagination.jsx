@@ -3,7 +3,7 @@ import { useGlobalContext } from "../../utility/context";
 
 const Pagination = ({}) => {
   const { state, dispatch } = useGlobalContext();
-  const pageCount = Math.ceil(state.projects.length / state.pageSize);
+  const pageCount = Math.ceil(state.projects.list.length / state.ui.pageSize);
 
   const changePage = (page) => {
     dispatch({ type: "CHANGE_PAGE", payload: page });
@@ -17,7 +17,7 @@ const Pagination = ({}) => {
           <span
             key={i}
             onClick={() => changePage(i + 1)}
-            className={state.curPage === i + 1 ? "active" : null}
+            className={state.ui.curPage === i + 1 ? "active" : null}
           >
             {i + 1}
           </span>

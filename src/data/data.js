@@ -128,6 +128,15 @@ const projectsData = [
     category: "e-commerce",
     url: "https://red-store.vercel.app/",
   },
+  {
+    id: "15",
+    title: "more store",
+    desc: "The e-commerce site, which is to navigate between pages as if you are on the same page responds to all screens and has all the functions required to purchase the product",
+    image: "./images/more store.jpg",
+    tech: ["html", "sass", "javaScript", "react", "redux", "bootstrap 5"],
+    category: "e-commerce",
+    url: "https://more-store.vercel.app/",
+  },
 ];
 
 const contactLinks = [

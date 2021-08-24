@@ -5,8 +5,6 @@ import { FaPhoneAlt } from "react-icons/fa";
 const Footer = () => {
   const refPhoneIcon = useRef(null);
 
-  console.log(refPhoneIcon);
-
   return (
     <footer className="Footer">
       <div className="container">

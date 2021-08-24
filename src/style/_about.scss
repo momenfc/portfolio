@@ -1,0 +1,275 @@
+.about {
+  height: 100%;
+  .container {
+    height: 100%;
+    @include mq("phablet") {
+      padding: 0;
+    }
+  }
+  .grid-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25rem 1fr;
+    grid-template-rows: 1fr;
+
+    @include mq("tablet") {
+      display: block;
+    }
+
+    .side-bar {
+      background-color: $color-secondary;
+      .info-list {
+        margin-top: 3rem;
+
+        li {
+          font-size: 2rem;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-transform: capitalize;
+          color: $color-light-1;
+          padding: 1.5rem 4.5rem;
+          margin-bottom: 1rem;
+          cursor: pointer;
+          transition: 0.4s;
+
+          &:hover,
+          &.active {
+            transform: translateX(1.5rem);
+            background-color: $color-primary;
+          }
+
+          svg {
+            margin-right: 1.5rem;
+          }
+        }
+      }
+
+      @include mq("tablet") {
+        .info-list {
+          margin-top: 0;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+          li {
+            &:hover,
+            &.active {
+              transform: translateX(0);
+              background-color: $color-primary;
+            }
+          }
+        }
+      }
+      @include mq("phablet") {
+        .info-list {
+          display: block;
+          margin-top: -1rem;
+        }
+      }
+    }
+    .content {
+    }
+  }
+}
+
+.hero {
+  height: 100%;
+  padding: 5rem 8rem;
+  @include mq("phablet") {
+    padding: 3rem;
+  }
+  .title {
+    text-align: center;
+    h2 {
+      font-family: $font-display;
+      font-size: 3rem;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      display: inline-block;
+
+      &::after {
+        content: "";
+        background-color: $color-primary-dark;
+        width: 50%;
+        height: 0.4rem;
+        display: block;
+        margin: auto;
+        margin-bottom: 2rem;
+        border-radius: 10rem;
+      }
+    }
+  }
+
+  .content {
+    padding-top: 3rem;
+
+    @include mq("phablet") {
+      padding-top: 1rem;
+    }
+  }
+}
+
+.personal {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+
+    &-item {
+      h4 {
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+      p {
+        font-size: 1.8rem;
+        text-transform: capitalize;
+        font-weight: 500;
+        color: $color-dark-1;
+        padding-left: 1.5rem;
+      }
+    }
+  }
+
+  @include mq("phablet") {
+    .content {
+      grid-template-columns: 1fr;
+
+      &-item {
+        h4 {
+          text-align: center;
+        }
+        p {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.education {
+  .content {
+    &-item {
+      h4 {
+        font-size: 2.2rem;
+        text-transform: capitalize;
+        padding-bottom: 1rem;
+
+        &.sub-title {
+          font-size: 2rem;
+          padding: 0;
+          padding-left: 1.5rem;
+        }
+      }
+      p {
+        font-size: 2rem;
+        font-weight: 500;
+        color: $color-dark-1;
+        padding-left: 1.5rem;
+        padding-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.skills {
+  .content {
+    &-item {
+      &:not(:last-child) {
+        padding-bottom: 3rem;
+      }
+
+      h4 {
+        font-size: 2.2rem;
+        text-transform: capitalize;
+        padding-bottom: 1rem;
+      }
+
+      .skills-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding-left: 2rem;
+
+        li {
+          font-size: 1.6rem;
+          font-weight: 500;
+          color: $color-dark-1;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  @include mq("phablet") {
+    .content {
+      &-item {
+        h4 {
+          text-align: center;
+        }
+        .skills-list {
+          grid-template-columns: 1fr;
+          padding-left: 0;
+          li {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+.experience {
+  .content {
+    &-item {
+      h4 {
+        font-size: 2.2rem;
+        text-transform: capitalize;
+        padding-bottom: 1rem;
+      }
+      .work-list {
+        padding-left: 2rem;
+        list-style: square;
+        li {
+          font-size: 1.6rem;
+          font-weight: 500;
+          color: $color-dark-1;
+          text-transform: capitalize;
+          padding-bottom: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+.contact {
+  .content {
+    &-item {
+      padding: 1rem 0;
+      h4 {
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+      a {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: $color-dark-1;
+        padding-left: 1.5rem;
+      }
+    }
+  }
+
+  @include mq("phablet") {
+    .content {
+      &-item {
+        text-align: center;
+        h4 {
+          text-align: center;
+        }
+        a {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Projects from "./Projects/Projects";
 import About from "./About/About";
 import NotFound from "./NotFound/NotFound";
@@ -14,6 +14,7 @@ const Main = () => {
         <Route path="/projects">
           <Projects />
         </Route>
+        <Redirect from="/" to="/projects" />
         <Route path="*">
           <NotFound />
         </Route>
