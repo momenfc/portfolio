@@ -7,7 +7,7 @@ const Pagination = ({}) => {
 
   const changePage = (page) => {
     dispatch({ type: "CHANGE_PAGE", payload: page });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
   };
   return (
     <div className="pagination">
@@ -16,8 +16,8 @@ const Pagination = ({}) => {
         .map((_, i) => (
           <span
             key={i}
-            onClick={() => changePage(i + 1)}
-            className={state.ui.curPage === i + 1 ? "active" : null}
+            onClick={() => changePage(i)}
+            className={state.ui.curPage === i ? "active" : null}
           >
             {i + 1}
           </span>

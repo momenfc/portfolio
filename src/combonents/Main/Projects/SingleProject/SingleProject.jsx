@@ -1,13 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const SingleProject = ({ project }) => {
-  const { title, image, desc, tech, url } = project;
+  const { title, image, desc, tech, url, imageBig } = project;
   const [allText, setAllText] = useState(false);
+
+  const [lazy, setLazy] = useState(true);
+
+  const imageRef = useRef(null);
+  const handleLazyLoading = () => {
+    const lazyLoading = (entries, observer) => {
+      const [entry] = entries;
+      console.log(entry);
+      if (!entry.isIntersecting) return;
+      setLazy(false);
+      entry.target.addEventListener("load", () => {
+        entry.target.classList.remove("lazy-loading");
+      });
+
+      observer.unobserve(entry.target);
+    };
+
+    const observer = new IntersectionObserver(lazyLoading, {
+      root: null,
+      threshold: 0,
+    });
+    observer.observe(imageRef.current);
+  };
+
+  useEffect(() => {
+    handleLazyLoading();
+  }, []);
 
   return (
     <div className="single-project">
       <header>
-        <img src={image} alt={title} />
+        <img
+          src={lazy ? image : imageBig}
+          alt={title}
+          className="lazy-loading"
+          ref={imageRef}
+        />
       </header>
       <div className="content">
         <h2 className="title">{title}</h2>
