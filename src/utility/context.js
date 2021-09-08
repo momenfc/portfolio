@@ -1,16 +1,30 @@
 import React, { useContext, useReducer } from "react";
 import { produce } from "immer";
-import { BsPersonLinesFill, BsTools, BsLightningFill } from "react-icons/bs";
-import { GoMortarBoard } from "react-icons/go";
-import { IoIosContact } from "react-icons/io";
 
 const AppContext = React.createContext();
 
+const initState = {
+  projects: {
+    list: [],
+  },
+  about: {
+    sections: [],
+    curSection: "personal",
+  },
+  ui: { curPage: 0, pageSize: 4 },
+};
+
 const reducer = (state, action) => {
-  if (action.type === "CHANGE_PROJECTS") {
-    const newProjects = action.payload;
-    return produce(state, (draftState) => {
-      draftState.projects.list = newProjects;
+  if (action.type === "LOAD_PROJECTS") {
+    const projects = action.payload.slice().reverse();
+    return produce(state, (draft) => {
+      draft.projects.list = projects;
+    });
+  }
+
+  if (action.type === "LOAD_ABOUT_SECTIONS") {
+    return produce(state, (draft) => {
+      draft.about.sections = action.payload;
     });
   }
 
@@ -25,23 +39,6 @@ const reducer = (state, action) => {
       draft.about.curSection = action.payload;
     });
   }
-};
-
-const initState = {
-  projects: {
-    list: [],
-  },
-  about: {
-    sections: [
-      { id: 1, name: "personal", icon: BsPersonLinesFill },
-      { id: 2, name: "education", icon: GoMortarBoard },
-      { id: 3, name: "skills", icon: BsTools },
-      { id: 4, name: "experience", icon: BsLightningFill },
-      { id: 5, name: "contact", icon: IoIosContact },
-    ],
-    curSection: "personal",
-  },
-  ui: { curPage: 1, pageSize: 4 },
 };
 
 const AppProvider = ({ children }) => {

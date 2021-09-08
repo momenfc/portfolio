@@ -1,5 +1,8 @@
-import { FaFacebook, FaLinkedin, FaPhoneAlt, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { SiGmail, SiGithub } from "react-icons/si";
+import { BsPersonLinesFill, BsTools, BsLightningFill } from "react-icons/bs";
+import { GoMortarBoard } from "react-icons/go";
+import { IoIosContact } from "react-icons/io";
 
 const projectsData = [
   {
@@ -154,6 +157,14 @@ const projectsData = [
   },
 ];
 
+const aboutSections = [
+  { id: 1, name: "personal", icon: BsPersonLinesFill },
+  { id: 2, name: "education", icon: GoMortarBoard },
+  { id: 3, name: "skills", icon: BsTools },
+  { id: 4, name: "experience", icon: BsLightningFill },
+  { id: 5, name: "contact", icon: IoIosContact },
+];
+
 const contactLinks = [
   {
     id: 1,
@@ -182,4 +193,4 @@ const contactLinks = [
   },
 ];
 
-export { projectsData, contactLinks };
+export { projectsData, aboutSections, contactLinks };

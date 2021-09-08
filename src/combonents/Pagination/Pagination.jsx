@@ -1,7 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../../utility/context";
 
-const Pagination = ({}) => {
+const Pagination = () => {
   const { state, dispatch } = useGlobalContext();
   const pageCount = Math.ceil(state.projects.list.length / state.ui.pageSize);
 

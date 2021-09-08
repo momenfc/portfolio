@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { aboutSections } from "../../../data/data";
 import { useGlobalContext } from "../../../utility/context";
 import AboutSidebar from "./AboutSidebar";
 import Personal from "./about-sections/Personal";
@@ -6,8 +7,6 @@ import Education from "./about-sections/Education";
 import Skills from "./about-sections/Skills";
 import Experience from "./about-sections/Experience";
 import Contact from "./about-sections/Contact";
-
-export const context = React.createContext();
 
 const About = () => {
   const { state, dispatch } = useGlobalContext();
@@ -19,6 +18,10 @@ const About = () => {
     experience: <Experience />,
     contact: <Contact />,
   };
+
+  useEffect(() => {
+    dispatch({ type: "LOAD_ABOUT_SECTIONS", payload: aboutSections });
+  }, [dispatch]);
 
   return (
     <div className="about">

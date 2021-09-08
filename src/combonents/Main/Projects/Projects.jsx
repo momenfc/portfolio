@@ -6,10 +6,6 @@ import Pagination from "./../../Pagination/Pagination";
 
 const Projects = () => {
   const { state, dispatch } = useGlobalContext();
-  const reverseProjects = () => {
-    const revProjects = [...projectsData].reverse();
-    dispatch({ type: "CHANGE_PROJECTS", payload: revProjects });
-  };
 
   const handleListForPagination = () => {
     const { curPage, pageSize } = state.ui;
@@ -24,8 +20,8 @@ const Projects = () => {
   };
 
   useEffect(() => {
-    reverseProjects();
-  }, []);
+    dispatch({ type: "LOAD_PROJECTS", payload: projectsData });
+  }, [dispatch]);
 
   return (
     <>

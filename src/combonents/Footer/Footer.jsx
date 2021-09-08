@@ -1,10 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { contactLinks } from "../../data/data";
 import { FaPhoneAlt } from "react-icons/fa";
 
 const Footer = () => {
-  const refPhoneIcon = useRef(null);
-
   return (
     <footer className="Footer">
       <div className="container">
@@ -12,17 +10,13 @@ const Footer = () => {
           <ul className="list-links">
             {contactLinks.map((link) => (
               <li key={link.id}>
-                <a href={link.url} target="_blank">
+                <a href={link.url} target="_blank" rel="noreferrer">
                   <link.icon />
                 </a>
               </li>
             ))}
             <li>
-              <a
-                className="phone-number"
-                href="tel:+20 12974151"
-                ref={refPhoneIcon}
-              >
+              <a className="phone-number" href="tel:+20 12974151">
                 <FaPhoneAlt /> <span>+20_1012974151</span>
               </a>
             </li>

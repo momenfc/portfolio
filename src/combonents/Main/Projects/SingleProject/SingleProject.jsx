@@ -3,14 +3,12 @@ import React, { useEffect, useRef, useState } from "react";
 const SingleProject = ({ project }) => {
   const { title, image, desc, tech, url, imageBig } = project;
   const [allText, setAllText] = useState(false);
-
   const [lazy, setLazy] = useState(true);
 
   const imageRef = useRef(null);
   const handleLazyLoading = () => {
     const lazyLoading = (entries, observer) => {
       const [entry] = entries;
-      console.log(entry);
       if (!entry.isIntersecting) return;
       setLazy(false);
       entry.target.addEventListener("load", () => {
@@ -56,7 +54,7 @@ const SingleProject = ({ project }) => {
         </div>
       </div>
       <footer>
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" rel="noreferrer">
           live demo
         </a>
       </footer>
