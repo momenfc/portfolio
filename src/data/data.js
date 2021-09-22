@@ -155,6 +155,16 @@ const projectsData = [
     category: "e-commerce",
     url: "https://more-store.vercel.app/",
   },
+  {
+    id: "16",
+    title: "calculator app",
+    desc: "A calculator app that enables you to perform basic arithmetic operations such as addition, subtraction, multiplication and division, has three themes to choose from, and is responsive to most screens",
+    image: "./images/calculator app-small.jpg",
+    imageBig: "./images/calculator app.png",
+    tech: ["html", "sass", "javaScript"],
+    category: "app",
+    url: "https://calculator-app-dxqqr61jn-momenfc.vercel.app/",
+  },
 ];
 
 const aboutSections = [
